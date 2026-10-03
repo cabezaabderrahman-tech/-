@@ -1,12 +1,12 @@
 #!/bin/bash
-# Install ppt-master's Python dependencies in Claude Code cloud sessions.
+# Install the Python dependencies of the project skills in Claude Code cloud sessions.
 set -euo pipefail
 
 if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
   exit 0
 fi
 
-REQ="$CLAUDE_PROJECT_DIR/.claude/skills/ppt-master/requirements.txt"
+SKILLS="$CLAUDE_PROJECT_DIR/.claude/skills"
 PIP=(pip install --quiet --disable-pip-version-check --root-user-action=ignore)
 
 # Debian ships blinker 1.7 without a RECORD file, so pip cannot upgrade it in
@@ -15,4 +15,4 @@ if ! python3 -c 'import importlib.metadata as m, sys; v = tuple(int(x) for x in 
   "${PIP[@]}" --ignore-installed --no-deps 'blinker>=1.9'
 fi
 
-"${PIP[@]}" -r "$REQ"
+"${PIP[@]}" -r "$SKILLS/ppt-master/requirements.txt" -r "$SKILLS/paper-check/requirements.txt"
