@@ -1,0 +1,12 @@
+# 下面命令是在 Claude Code 的交互界面里执行，不是在普通终端里执行。
+
+# 1) 安装 research（位于 Melodic 的 discovery 插件）
+/plugin marketplace add melodic-software/claude-code-plugins
+/plugin install discovery@melodic-software
+
+# 2) 安装 last30days
+/plugin marketplace add mvanhorn/last30days-skill
+/plugin install last30days@last30days-skill
+
+# 安装后可以让 Claude 检查：
+# “请列出当前可用的 skills，并确认 research、literature-review、last30days 是否可触发。”

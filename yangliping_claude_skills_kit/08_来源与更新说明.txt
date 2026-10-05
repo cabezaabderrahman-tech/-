@@ -1,0 +1,19 @@
+生成日期：2026-10-05
+
+官方 Skill：
+https://github.com/anthropics/skills
+
+Research / Discovery：
+https://github.com/melodic-software/claude-code-plugins
+安装方式：Claude Code marketplace plugin
+
+Literature Review：
+https://github.com/pinshuai/literature-review-skill
+
+Last30days：
+https://github.com/mvanhorn/last30days-skill
+
+说明：
+1. 本安装包不内嵌第三方仓库源码，运行安装脚本时从原仓库获取最新版本。
+2. 第三方仓库可能随时间变化，重要环境使用前建议查看最新 SKILL.md / scripts。
+3. 若你只想要最稳定的一套，可只安装 Anthropic 官方8个 + literature-review，research/last30days 按需安装。
