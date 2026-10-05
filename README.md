@@ -12,6 +12,11 @@
 - 本地使用需先执行一次：
   `pip install -r .claude/skills/ppt-master/requirements.txt -r .claude/skills/paper-check/requirements.txt`
 
+## 中国地图数据动画（china-map-video）
+
+用 Remotion 技能做的示例视频项目：镜头在省份之间平滑移动，逐个高亮，显示省份名称、核心指标、同比、全国排名。
+示例数据为 2024 年各省 GDP 前十，换数据和预览方法见 [`china-map-video/README.md`](china-map-video/README.md)。
+
 ## 论文查重（paper-check）
 
 按 [paper_checking_system](https://github.com/tianlian0/paper_checking_system) 公开的查重原理用 Python 重写，

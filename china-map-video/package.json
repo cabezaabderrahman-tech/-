@@ -1,0 +1,37 @@
+{
+  "name": "china-map-video",
+  "version": "1.0.0",
+  "description": "中国地图数据动画：逐个高亮省份并显示核心指标",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@fontsource-variable/noto-sans-sc": "^5.3.0",
+    "@remotion/cli": "4.0.533",
+    "@remotion/zod-types": "4.0.533",
+    "d3-geo": "^3.1.1",
+    "d3-interpolate": "^3.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.533",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.533",
+    "@types/d3-geo": "^3.1.1",
+    "@types/d3-interpolate": "^3.0.4",
+    "@types/geojson": "^7946.0.16",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "cn-atlas": "^0.1.2",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc"
+  }
+}
