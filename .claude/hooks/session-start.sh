@@ -15,7 +15,7 @@ if ! python3 -c 'import importlib.metadata as m, sys; v = tuple(int(x) for x in 
   "${PIP[@]}" --ignore-installed --no-deps 'blinker>=1.9'
 fi
 
-"${PIP[@]}" -r "$SKILLS/ppt-master/requirements.txt" -r "$SKILLS/paper-check/requirements.txt"
+"${PIP[@]}" -r "$SKILLS/ppt-master/requirements.txt"
 
 # webapp-testing drives the preinstalled Chromium in $PLAYWRIGHT_BROWSERS_PATH
 # (chromium-1194); playwright 1.56.0 is the release built against that revision.
