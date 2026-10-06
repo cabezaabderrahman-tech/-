@@ -1,3 +1,0 @@
-# paper-check: PDF and DOCX text extraction
-PyMuPDF>=1.23.0
-mammoth>=1.6.0

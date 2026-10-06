@@ -1,11 +1,10 @@
 # 工作区
 
-本仓库内置六个 Claude Code 项目技能，放在 `.claude/skills/` 下。在这个仓库里打开 Claude Code，直接用中文说需求即可。
+本仓库内置五个 Claude Code 项目技能，放在 `.claude/skills/` 下。在这个仓库里打开 Claude Code，直接用中文说需求即可。
 
 | 技能 | 用途 | 这样说 |
 |---|---|---|
 | `ppt-master` | 从文档生成可编辑的 PPT | 用这份材料做一份 PPT |
-| `paper-check` | 简体中文论文/作业查重 | 帮我查重这几篇论文 / 把这些加到比对库 |
 | `literature-review` | 系统文献综述、引用核验 | 对智慧物流近 5 年文献做综述 |
 | `frontend-design` | 网站/UI 视觉设计 | 帮我设计一个产品介绍页 |
 | `web-artifacts-builder` | 多组件 React 交互网页（单个 HTML） | 做一个带筛选和图表的交互网页 |
@@ -15,7 +14,7 @@
 - 云端会话启动时，`.claude/hooks/session-start.sh` 会自动安装 Python 依赖，包括 webapp-testing 用的 `playwright==1.56.0`（与云端预装的 Chromium 配套）。
 - 云端用 webapp-testing 测本地网页时，地址写 `http://127.0.0.1:端口`，不要写 `localhost`。
 - 本地使用需先执行一次：
-  `pip install requests -r .claude/skills/ppt-master/requirements.txt -r .claude/skills/paper-check/requirements.txt`
+  `pip install requests -r .claude/skills/ppt-master/requirements.txt`
   用 webapp-testing 还需：`pip install playwright && python -m playwright install chromium`
 
 ## research 和 last30days
@@ -29,15 +28,6 @@
 ## 安装工具包（yangliping_claude_skills_kit）
 
 给自己电脑用的一键安装包：把上面的技能和 Anthropic 官方的 docx/pdf/pptx/xlsx/skill-creator 装到 `~/.claude/skills/`。先看其中的 `README_先看我.md`。
-
-## 论文查重（paper-check）
-
-按 [paper_checking_system](https://github.com/tianlian0/paper_checking_system) 公开的查重原理用 Python 重写，
-支持纵向查重（与比对库比对）和横向查重（同批文件互相比对），读 PDF、DOCX、TXT，输出标红的 HTML 报告和 `result.csv`。
-
-- 比对库存在 `paper_library/`，提交到仓库后永久保存。
-- 只和比对库及同批文件比对，不连知网等外部数据库。
-- 详细规则见 `.claude/skills/paper-check/SKILL.md`。
 
 ## ppt-master
 
