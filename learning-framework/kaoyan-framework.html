@@ -90,11 +90,11 @@ a{color:var(--red)}
 .btn[disabled]{opacity:.5;cursor:default}
 
 /* ---------- 顶部分页 ---------- */
-.apptabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:3px solid var(--ink)}
+.apptabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-bottom:3px solid var(--ink)}
 .apptabs button{background:transparent;border:0;border-bottom:4px solid transparent;margin-bottom:-3px;padding:12px 4px 9px;font-family:var(--f-display);font-weight:900;font-size:17px;cursor:pointer;color:var(--ink-3)}
 .apptabs button:hover{color:var(--ink)}
 .apptabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
-@media (max-width:420px){.apptabs button{font-size:15px}}
+@media (max-width:480px){.apptabs button{font-size:14.5px;padding-inline:2px}}
 .view{display:flex;flex-direction:column;gap:32px}
 
 /* ---------- 倒计时牌 ---------- */
@@ -142,7 +142,7 @@ a{color:var(--red)}
 
 /* 知识点行 */
 .prow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:start;padding:8px 0;border-bottom:1px dashed var(--hair)}
-@media (max-width:680px){.prow{grid-template-columns:minmax(0,1fr)}.prow .acts{padding-left:38px}}
+@media (max-width:680px){.prow{grid-template-columns:minmax(0,1fr)}.prow .acts{padding-left:38px}.due .prow .acts,#wList .prow .acts{padding-left:0}}
 .pchk,.task{display:flex;gap:12px;align-items:flex-start;cursor:pointer;position:relative;min-width:0}
 .box{width:26px;height:16px;border:1.5px solid var(--red);border-radius:2px;flex:none;margin-top:4px;transition:background .15s,border-color .15s}
 input:checked + .box{background:var(--lead);border-color:var(--lead)}
@@ -185,6 +185,44 @@ a.act{border-color:var(--hair);color:var(--ink-2)}
 .tt-btns{display:flex;flex-direction:column;gap:6px}
 .tt-note{font-size:12.5px;color:var(--red);padding:0 14px 10px}
 .tt-note:empty{display:none}
+.tt-note.ok{color:var(--ok)}
+
+/* 今日复习 */
+.due{border:1.5px solid var(--ink);background:var(--sheet);display:flex;flex-direction:column;min-width:0}
+.due-head{display:flex;flex-direction:column;gap:2px;padding:12px 16px;border-bottom:1px solid var(--hair)}
+.due-head h3{font-size:18px;font-weight:900;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.due-head h3 .mono{font-size:14px;color:var(--red)}
+.due-head p{font-size:13px;color:var(--ink-2)}
+.due-body{padding:2px 16px 12px;display:flex;flex-direction:column}
+.due-body .empty{padding:10px 0 2px}
+.act.ok{border-color:var(--ok);color:var(--ok)}
+.act.ok:hover{background:var(--ok);border-color:var(--ok);color:var(--sheet)}
+.act.again{border-color:var(--warn);color:var(--warn)}
+.act.again:hover{background:var(--warn);border-color:var(--warn);color:var(--sheet)}
+
+/* 错题本 */
+.wrong{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.wrong{grid-template-columns:minmax(0,1fr)}}
+.wform{background:var(--sheet);border:1px solid var(--hair);padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.wform .f{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--red);letter-spacing:.04em;min-width:0}
+.wform .f .sel{font-size:14px;color:var(--ink);max-width:100%}
+.wform textarea{border:1px solid var(--hair);background:var(--paper);padding:7px 10px;resize:vertical;font-size:14px;line-height:1.55;width:100%;color:var(--ink)}
+.wform textarea:focus{outline:none;border-color:var(--red)}
+.wform .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:10px}
+.lab-s{font-size:12px;color:var(--red);letter-spacing:.04em;display:block;margin-bottom:6px}
+.okmsg{font-size:12.5px;color:var(--ok);min-height:1em}
+.wstats{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.wstats h4{font-size:14px;font-weight:900}
+.wstat{display:grid;grid-template-columns:64px minmax(0,1fr) 28px;gap:8px;align-items:center}
+.wstat .bar{height:8px;background:var(--hair);position:relative}
+.wstat .bar span{position:absolute;inset:0 auto 0 0;background:var(--lead)}
+.wstat .mono{text-align:right}
+.wmain{display:flex;flex-direction:column;gap:4px;min-width:0}
+.wmeta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:12.5px;color:var(--ink-3)}
+.wq{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}
+.wn{font-size:13px;color:var(--ink-2);white-space:pre-wrap;overflow-wrap:anywhere;border-left:3px solid var(--hair);padding-left:8px}
+.cause{font-size:11.5px;padding:0 6px;border:1px dashed var(--ink-2);color:var(--ink-2);white-space:nowrap}
+.star{color:var(--red);font-weight:700}
 
 /* 知识地图 */
 .chips{display:flex;flex-wrap:wrap;gap:6px}
@@ -446,6 +484,7 @@ window.MathJax = {
         <li>每天打开「今天学」：每科列出接下来要学的知识点，按顺序往下学，不用自己挑。</li>
         <li>不懂就点「讲给我听」，Claude 会从零讲起；讲完点「出题练练」，把答案写给它批改。</li>
         <li>真的会了，再把前面的方框填涂上，进度会自动往后走。</li>
+        <li>学会的知识点和记下的错题，会在第 1、2、4、7、15、30 天回到「今天学」的复习区，照着复习就行。</li>
         <li>择校、报名这些事看「备考计划」；做完真题在「成绩复盘」记分数。</li>
       </ol>
       <button type="button" class="btn" id="closeMe">填好了，开始学习</button>
@@ -455,6 +494,7 @@ window.MathJax = {
   <nav class="apptabs" role="tablist" aria-label="页面" id="apptabs">
     <button type="button" role="tab" id="t-today" aria-controls="v-today" data-view="today">今天学</button>
     <button type="button" role="tab" id="t-map" aria-controls="v-map" data-view="map">知识地图</button>
+    <button type="button" role="tab" id="t-wrong" aria-controls="v-wrong" data-view="wrong">错题本</button>
     <button type="button" role="tab" id="t-plan" aria-controls="v-plan" data-view="plan">备考计划</button>
     <button type="button" role="tab" id="t-score" aria-controls="v-score" data-view="score">成绩复盘</button>
   </nav>
@@ -474,6 +514,7 @@ window.MathJax = {
       </div>
     </div>
     <p class="howto"><b>每个知识点这样学：</b>看讲解<i>→</i>合上书复述一遍<i>→</i>做题<i>→</i>错题记下来<i>→</i>会了再填涂方框</p>
+    <section class="due" id="dueBox" aria-label="今日复习"></section>
     <div class="cards-col" id="todayCards"></div>
   </section>
 
@@ -481,6 +522,42 @@ window.MathJax = {
   <section class="view" id="v-map" role="tabpanel" aria-labelledby="t-map" hidden>
     <div class="chips" id="mapChips" role="group" aria-label="选择科目"></div>
     <div id="mapBody" class="cards-col"></div>
+  </section>
+
+  <!-- ===== 错题本 ===== -->
+  <section class="view" id="v-wrong" role="tabpanel" aria-labelledby="t-wrong" hidden>
+    <section class="q">
+      <header><h2>错题本</h2><p class="stem">做错的题记在这里。它会在第 1、2、4、7、15、30 天出现在「今天学」的复习区，连续 3 次做对就算掌握。</p></header>
+      <div class="wrong">
+        <div class="col">
+          <form class="wform" id="wform" novalidate>
+            <div class="two">
+              <label class="f" for="wSubj">科目<select class="sel" id="wSubj"></select></label>
+              <label class="f" for="wUnit">章节<select class="sel" id="wUnit"></select></label>
+            </div>
+            <label class="f" for="wQ">题目<textarea id="wQ" rows="4" maxlength="1200" placeholder="抄下题干，或写清是哪本书第几页第几题"></textarea></label>
+            <div><span class="lab-s" id="wWhyLab">错因（选一个）</span>
+              <div class="opts" role="radiogroup" aria-labelledby="wWhyLab">
+                <label class="opt"><input class="sr" type="radio" name="wwhy" id="wwhy-gap" value="gap"><span class="mark" data-l="A"></span>知识盲区</label>
+                <label class="opt"><input class="sr" type="radio" name="wwhy" id="wwhy-method" value="method"><span class="mark" data-l="B"></span>方法不熟</label>
+                <label class="opt"><input class="sr" type="radio" name="wwhy" id="wwhy-careless" value="careless"><span class="mark" data-l="C"></span>审题计算</label>
+                <label class="opt"><input class="sr" type="radio" name="wwhy" id="wwhy-time" value="time"><span class="mark" data-l="D"></span>时间不够</label>
+              </div>
+            </div>
+            <label class="f" for="wNote">正确思路 / 提醒自己（可选）<textarea id="wNote" rows="2" maxlength="600" placeholder="例如：洛必达前先检查是不是 0/0 型"></textarea></label>
+            <label class="opt"><input class="sr" type="checkbox" id="wStar"><span class="mark" data-l="★"></span>标为重点（考前一周重点看）</label>
+            <button class="btn" type="submit">记下这道错题</button>
+            <p class="err" id="wErr" role="alert"></p>
+            <p class="okmsg" id="wOk" role="status"></p>
+          </form>
+          <div class="wstats" id="wStats"></div>
+        </div>
+        <div class="col">
+          <div class="chips" id="wFilter" role="group" aria-label="筛选错题"></div>
+          <div id="wList"></div>
+        </div>
+      </div>
+    </section>
   </section>
 
   <!-- ===== 备考计划 ===== -->
@@ -550,7 +627,7 @@ window.MathJax = {
           <div class="review">
             <h3><span>本周复盘</span><small id="rvWeek"></small></h3>
             <label for="rvA"><b>1. 本周计划完成了多少？</b>哪里没完成，为什么？<textarea id="rvA" data-k="a"></textarea></label>
-            <label for="rvB"><b>2. 错题最多的是哪一类？</b>知识盲区、方法不熟、审题计算还是时间不够？<textarea id="rvB" data-k="b"></textarea></label>
+            <label for="rvB"><b>2. 错题最多的是哪一类？</b><span id="rvBHint">知识盲区、方法不熟、审题计算还是时间不够？</span><textarea id="rvB" data-k="b"></textarea></label>
             <label for="rvC"><b>3. 下周只改一件事：</b>具体改什么？<textarea id="rvC" data-k="c"></textarea></label>
           </div>
           <div class="past-rv" id="pastRv"></div>
@@ -584,6 +661,11 @@ window.MathJax = {
   };
   var CAT_NAME = { all: "通用", pol: "政治", eng: "英语", math: "数学", c199: "管综", pro: "专业课" };
   var CAT_ORDER = ["math", "c199", "eng", "pro", "pol"];
+  /* 复习间隔：学会后第 1、2、4、7、15、30 天 */
+  var GAPS = [1, 1, 2, 3, 8, 15];
+  var CAUSE = { gap: "知识盲区", method: "方法不熟", careless: "审题计算", time: "时间不够" };
+  var CAUSE_ORDER = ["gap", "method", "careless", "time"];
+  var VIEWS = ["today", "map", "wrong", "plan", "score"];
 
   var TRACKS = {
     sci:  { label: "学硕 · 理工", subs: ["pol", "eng1", "math1", "pro"], t: { pol: 65, eng1: 60, math1: 110, pro: 115 },
@@ -926,7 +1008,7 @@ window.MathJax = {
   var LS_VIEW = "kaoyan-framework-view";
   function blank() {
     return { v: 2, settings: { exam: "2028", custom: "", track: "sci", mode: "full", level: "zero", school: "", started: iso(today()), targets: {} },
-      checks: {}, scores: [], reviews: {}, words: {}, pro: {} };
+      checks: {}, rev: {}, scores: [], reviews: {}, words: {}, pro: {} };
   }
   function obj(x) { return x && typeof x === "object" && !Array.isArray(x) ? x : {}; }
   function normalize(raw) {
@@ -948,6 +1030,15 @@ window.MathJax = {
     }).map(function (x) { return { id: String(x.id || rid()), d: x.d, s: x.s, v: +x.v, t: String(x.t || "").slice(0, 40) }; }) : [];
     b.reviews = obj(d.reviews);
     b.words = obj(d.words);
+    var rv = obj(d.rev);
+    Object.keys(rv).forEach(function (k) {
+      var x = obj(rv[k]), n = Math.floor(+x.n);
+      if (isFinite(n) && n >= 0) b.rev[k] = { n: Math.min(GAPS.length, n), due: parse(x.due) ? x.due : null };
+    });
+    Object.keys(b.checks).forEach(function (k) {
+      var v = b.checks[k];
+      if (!b.rev[k] && typeof v === "string" && parse(v) && (k.indexOf("k:") === 0 || k.indexOf("pro:") === 0)) b.rev[k] = { n: 0, due: iso(add(parse(v), 1)) };
+    });
     var pro = obj(d.pro);
     Object.keys(pro).forEach(function (k) {
       var p = obj(pro[k]);
@@ -970,7 +1061,69 @@ window.MathJax = {
   var FRESH = !loadLocal();
   var UI = { view: "today", phase: null, week: null, subj: null, mapSubj: null, armed: null, openUnits: {}, proDraft: {} };
   try { var v0 = localStorage.getItem(LS_VIEW); if (v0) UI.view = v0; } catch (e) { /* ignore */ }
-  if (/^#(today|map|plan|score)$/.test(location.hash)) UI.view = location.hash.slice(1);
+  if (/^#(today|map|wrong|plan|score)$/.test(location.hash)) UI.view = location.hash.slice(1);
+  if (VIEWS.indexOf(UI.view) < 0) UI.view = "today";
+
+  /* 错题和笔记：每条一个文档，存在 data/users/<id>/kaoyan/items 下 */
+  var ITEMS_KEY = "kaoyan-items-v1";
+  function cleanItems(m) {
+    var out = {};
+    Object.keys(obj(m)).forEach(function (id) {
+      var x = obj(m[id]);
+      if (!/^[A-Za-z0-9_\-.~:@+]{1,200}$/.test(id) || !SUBJ[x.s]) return;
+      if (x.type === "note") out[id] = { type: "note", s: x.s, pid: String(x.pid || "").slice(0, 120), pt: String(x.pt || "").slice(0, 120), text: String(x.text || "").slice(0, 12000), d: parse(x.d) ? x.d : iso(today()) };
+      else if (x.type === "wrong") out[id] = { type: "wrong", s: x.s, u: String(x.u || "").slice(0, 60), q: String(x.q || "").slice(0, 1200), why: CAUSE[x.why] ? x.why : "gap",
+        note: String(x.note || "").slice(0, 600), star: !!x.star, d: parse(x.d) ? x.d : iso(today()), n: clamp(Math.floor(+x.n || 0), 0, GAPS.length),
+        due: parse(x.due) ? x.due : null, c: clamp(Math.floor(+x.c || 0), 0, 3), m: !!x.m };
+    });
+    return out;
+  }
+  var items = {
+    map: {}, col: null, busy: {}, again: {}, first: true,
+    load: function () { try { var t = localStorage.getItem(ITEMS_KEY); this.map = t ? cleanItems(JSON.parse(t)) : {}; } catch (e) { this.map = {}; } },
+    saveLocal: function () { try { localStorage.setItem(ITEMS_KEY, JSON.stringify(this.map)); } catch (e) { /* ignore */ } },
+    put: function (id, data) { this.map[id] = data; this.saveLocal(); this.write(id); },
+    del: function (id) { delete this.map[id]; this.saveLocal(); this.write(id); },
+    write: function (id) {
+      var self = this;
+      if (!self.col) return;
+      if (self.busy[id]) { self.again[id] = true; return; }
+      self.busy[id] = true;
+      var d = self.map[id], ref = self.col.doc(id);
+      (d ? ref.set(JSON.parse(JSON.stringify(d))) : ref.delete()).catch(function (e) {
+        setStatus(e && e.code === "invalid_argument" ? "readonly" : "error");
+      }).then(function () {
+        self.busy[id] = false;
+        if (self.again[id]) { self.again[id] = false; self.write(id); }
+      });
+    },
+    attach: function (col) {
+      var self = this;
+      self.col = col;
+      col.onSnapshot(function (snap) {
+        var next = {};
+        snap.docs.forEach(function (doc) { next[doc.id] = doc.data(); });
+        next = cleanItems(next);
+        if (self.first) {
+          self.first = false;
+          if (snap.empty && Object.keys(self.map).length) { Object.keys(self.map).forEach(function (id) { self.write(id); }); return; }
+        }
+        Object.keys(self.busy).forEach(function (id) {
+          if (self.busy[id] || self.again[id]) { if (self.map[id]) next[id] = self.map[id]; else delete next[id]; }
+        });
+        if (JSON.stringify(next) === JSON.stringify(self.map)) return;
+        self.map = next;
+        self.saveLocal();
+        renderAll();
+      }, function () { setStatus("error"); });
+    }
+  };
+  items.load();
+  function noteId(pid) { return "n-" + pid; }
+  function noteFor(pid) { var n = items.map[noteId(pid)]; return n && n.type === "note" ? n : null; }
+  function wrongList() {
+    return Object.keys(items.map).filter(function (id) { return items.map[id].type === "wrong"; }).map(function (id) { return { id: id, w: items.map[id] }; });
+  }
 
   var STATUS = {
     init: "正在载入进度…", local: "进度保存在本浏览器", cloud: "进度已保存到你的账号", saving: "保存中…",
@@ -999,6 +1152,7 @@ window.MathJax = {
         return user.id().then(function (uid) {
           if (!uid) { setStatus("local"); return; }
           self.ref = db.doc("data/users/" + uid + "/kaoyan");
+          items.attach(self.ref.collection("items"));
           self.mode = "cloud";
           setStatus("cloud");
           self.ref.onSnapshot(function (snap) {
@@ -1273,6 +1427,7 @@ window.MathJax = {
     pro: "请从零讲解这个知识点，按顺序：\n1. 一句话说清它是什么、有什么用；\n2. 需要掌握的核心概念、原理或公式；\n3. 一个例子或例题，分步骤讲解；\n4. 考试中可能的考法（名词解释、简答、计算或论述）；\n5. 两道自测题，答案放在最后的「答案」小标题下。"
   };
   var ASK = {
+    recall: ["考考我", "这个知识点我之前学过，现在是间隔复习。请出 2 道小题检查我还记不记得：一道考概念或公式，一道考简单应用。只给题目，不给答案；我答完发给你批改。"],
     quiz: ["出 3 道题", "请出 3 道关于这个知识点的练习题，由易到难，最后一道接近考研难度。只给题目，不要给答案和提示。我做完会把答案发给你批改。"],
     simpler: ["再讲简单点", "刚才的讲解我还是没太懂。请换一种更简单的说法，多用生活中的比喻，只讲最核心的部分。"],
     example: ["再来一道例题", "请再出一道同类型的例题，一步一步详细讲解。"]
@@ -1292,6 +1447,12 @@ window.MathJax = {
 
   function findPoint(pid, k) {
     var units = routeFor(k);
+    if (pid.indexOf("w-") === 0) {
+      var w = items.map[pid];
+      if (!w || w.type !== "wrong") return null;
+      var u = units.filter(function (x) { return x.id === w.u; })[0] || { id: "", t: CAT_NAME[SUBJ[k].cat] + "错题", book: "—" };
+      return { u: u, p: { id: pid, t: "错题：" + w.q.slice(0, 40) }, w: w };
+    }
     for (var i = 0; i < units.length; i++) for (var j = 0; j < units[i].pts.length; j++) if (units[i].pts[j].id === pid) return { u: units[i], p: units[i].pts[j] };
     return null;
   }
@@ -1306,14 +1467,19 @@ window.MathJax = {
       "- 用 Markdown 的 ### 小标题、列表和加粗组织内容，不要用表格。\n- 例题不要声称是某年真题；不确定的地方直接说明。\n" +
       "- 只讲这个知识点和它直接需要的前置知识，每次回答不超过 800 字。";
   }
-  function tutorEl() {
+  function wrongPrompt(w) {
+    return "这是我做错的一道题：\n「" + w.q + "」\n我自己判断的错因：" + CAUSE[w.why] + "。" + (w.note ? "\n我的备注：" + w.note : "") +
+      "\n请：\n1. 给出完整、分步骤的正确解答；\n2. 结合错因指出我最可能错在哪一步，以后怎么避免；\n3. 出一道同类型的题让我再练，答案放在最后的「答案」小标题下。";
+  }
+  function tutorEl(isWrong) {
     var el = document.createElement("div");
     el.className = "tutor";
     el.setAttribute("role", "region");
     el.setAttribute("aria-label", "Claude 讲解");
     el.innerHTML = '<div class="tt-head"><b>Claude 老师</b><span class="tt-topic"></span><button type="button" class="linkbtn" data-tt="close">收起</button></div>' +
       '<div class="tt-log" aria-live="polite"></div>' +
-      '<div class="tt-quick"><button type="button" class="act" data-tt="simpler">再讲简单点</button><button type="button" class="act" data-tt="example">再来一道例题</button><button type="button" class="act" data-tt="quiz">出 3 道题</button></div>' +
+      '<div class="tt-quick"><button type="button" class="act" data-tt="simpler">再讲简单点</button><button type="button" class="act" data-tt="example">再来一道例题</button><button type="button" class="act" data-tt="quiz">出 3 道题</button>' +
+      (isWrong ? "" : '<button type="button" class="act" data-tt="save">存为笔记</button><button type="button" class="act" data-tt="towrong">记入错题本</button>') + "</div>" +
       '<form class="tt-form"><label class="sr" for="ttInput">向 Claude 提问</label><textarea id="ttInput" rows="2" placeholder="有不懂的直接问；做完题把答案写在这里，让 Claude 批改"></textarea>' +
       '<div class="tt-btns"><button type="submit" class="btn">发送</button><button type="button" class="btn ghost" data-tt="stop" hidden>停止</button></div></form>' +
       '<p class="tt-note" role="status"></p>';
@@ -1322,7 +1488,7 @@ window.MathJax = {
   function placeTutor() {
     if (!TUT.el || !TUT.pid) return;
     var view = $("v-" + UI.view), rows = view ? view.querySelectorAll(".prow") : [], hit = null;
-    for (var i = 0; i < rows.length; i++) { rows[i].classList.remove("open"); if (rows[i].getAttribute("data-pid") === TUT.pid) hit = rows[i]; }
+    for (var i = 0; i < rows.length; i++) { rows[i].classList.remove("open"); if (!hit && rows[i].getAttribute("data-pid") === TUT.pid) hit = rows[i]; }
     if (hit) { hit.classList.add("open"); if (hit.nextSibling !== TUT.el) hit.parentNode.insertBefore(TUT.el, hit.nextSibling); }
     else if (TUT.el.parentNode) TUT.el.parentNode.removeChild(TUT.el);
   }
@@ -1338,14 +1504,45 @@ window.MathJax = {
     if (!f) return;
     if (TUT.pid !== pid) {
       closeTutor();
-      TUT.pid = pid; TUT.k = k; TUT.el = tutorEl();
-      TUT.el.querySelector(".tt-topic").textContent = SUBJ[k].short + " · " + f.p.t;
+      TUT.pid = pid; TUT.k = k; TUT.el = tutorEl(!!f.w);
+      TUT.el.querySelector(".tt-topic").textContent = SUBJ[k].short + " · " + (f.w ? "错题" : f.p.t);
     }
     placeTutor();
     if (TUT.busy) return;
     if (mode === "quiz") ask(ASK.quiz[0], ASK.quiz[1], false);
-    else if (!TUT.turns.length) ask("讲给我听", EXPLAIN[SUBJ[k].cat], true);
-    else TUT.el.querySelector("textarea").focus();
+    else if (mode === "recall") ask(ASK.recall[0], ASK.recall[1], false);
+    else if (!TUT.turns.length) {
+      var note = f.w ? null : noteFor(pid);
+      if (note && (mode === "note" || !SAMPLE_OK)) showNote(note, k);
+      else if (f.w) ask("讲给我听", wrongPrompt(f.w), true);
+      else ask("讲给我听", EXPLAIN[SUBJ[k].cat], true);
+    } else TUT.el.querySelector("textarea").focus();
+  }
+  function showNote(note, k) {
+    addMsg("msg-me", "我的笔记 · " + md(parse(note.d)) + "保存");
+    typeset(addMsg("msg-ai", md2html(note.text)));
+    TUT.turns = [{ role: "user", content: EXPLAIN[SUBJ[k].cat] }, { role: "assistant", content: note.text }];
+  }
+  function saveNote() {
+    if (!TUT.pid || TUT.pid.indexOf("w-") === 0) return;
+    var f = findPoint(TUT.pid, TUT.k), msg = TUT.el.querySelector(".tt-note");
+    var texts = TUT.turns.filter(function (x) { return x.role === "assistant"; }).map(function (x) { return x.content; });
+    if (!texts.length) { msg.className = "tt-note"; msg.textContent = "还没有讲解内容可以保存。"; return; }
+    items.put(noteId(TUT.pid), { type: "note", s: TUT.k, pid: TUT.pid, pt: f ? f.p.t : "", text: texts.join("\n\n---\n\n").slice(0, 12000), d: iso(today()) });
+    msg.className = "tt-note ok";
+    msg.textContent = "已存为笔记。以后点「看笔记」直接打开，不用再等 Claude。";
+    var c = ctx(); renderToday(c); renderMap(c);
+  }
+  function tutorToWrong() {
+    if (!TUT.pid) return;
+    var f = findPoint(TUT.pid, TUT.k), last = "";
+    for (var i = TUT.turns.length - 1; i >= 0; i--) if (TUT.turns[i].role === "assistant") { last = TUT.turns[i].content; break; }
+    setView("wrong");
+    if (track().subs.indexOf(TUT.k) >= 0) { $("wSubj").value = TUT.k; fillUnits(); if (f && f.u && f.u.id) $("wUnit").value = f.u.id; }
+    $("wQ").value = last.slice(0, 1200);
+    $("wErr").textContent = "";
+    $("wOk").textContent = last ? "已把 Claude 最后一条回答填进题目框：删掉不需要的部分，只留下你做错的那道题。" : "";
+    $("wQ").focus();
   }
   function addMsg(cls, html) {
     var d = document.createElement("div");
@@ -1366,6 +1563,7 @@ window.MathJax = {
     var f = findPoint(TUT.pid, TUT.k);
     if (!f) return;
     var note = TUT.el.querySelector(".tt-note");
+    note.className = "tt-note";
     note.textContent = "";
     var me = TUT;
     me.turns.push({ role: "user", content: content });
@@ -1416,11 +1614,12 @@ window.MathJax = {
   }
   function rowHTML(p, k, where) {
     var id = where + "-" + p.id.replace(/[^\w-]/g, "_");
-    var on = !!S.checks[p.id];
+    var on = !!S.checks[p.id], note = noteFor(p.id);
     return '<div class="prow" data-pid="' + esc(p.id) + '" data-subj="' + k + '">' +
       '<label class="pchk" for="' + id + '"><input class="sr" type="checkbox" id="' + id + '" data-point="' + esc(p.id) + '"' + (on ? " checked" : "") +
       '><span class="box" aria-hidden="true"></span><span class="tx">' + esc(p.t) + '<span class="sr">（勾选表示学会了）</span></span></label>' +
-      '<div class="acts">' + (SAMPLE_OK ? '<button type="button" class="act pri" data-tutor="explain">讲给我听</button><button type="button" class="act" data-tutor="quiz">出题练练</button>' : "") +
+      '<div class="acts">' + (note ? '<button type="button" class="act pri" data-tutor="note">看笔记</button>' : SAMPLE_OK ? '<button type="button" class="act pri" data-tutor="explain">讲给我听</button>' : "") +
+      (SAMPLE_OK ? '<button type="button" class="act" data-tutor="quiz">出题练练</button>' : "") +
       '<a class="act" href="' + videoURL(k, p) + '" target="_blank" rel="noopener">找视频 ↗</a></div></div>';
   }
   function subjectCard(k, c) {
@@ -1453,7 +1652,7 @@ window.MathJax = {
         P.units[i].pts.forEach(function (p) { if (picks.length < 3 && !S.checks[p.id]) picks.push({ p: p, u: P.units[i] }); });
         if (picks.length && i === P.curIdx && picks.length >= 2) break;
       }
-      if (TUT.pid && TUT.k === k && !picks.some(function (x) { return x.p.id === TUT.pid; })) {
+      if (TUT.pid && TUT.k === k && TUT.pid.indexOf("w-") !== 0 && !S.checks[TUT.pid] && !picks.some(function (x) { return x.p.id === TUT.pid; })) {
         var f = findPoint(TUT.pid, k); if (f) picks.unshift({ p: f.p, u: f.u });
       }
       h += '<div class="unit-now"><span class="lbl">正在学 · 第 ' + (P.curIdx + 1) + " / " + P.units.length + ' 章</span><b>' + esc(u.t) + "</b><small>" + esc(u.book) +
@@ -1480,6 +1679,7 @@ window.MathJax = {
     if (d > 0) facts.push("约 <b class='mono'>" + Math.floor(d / 7) + "</b> 周");
     facts.push("当前 <b>" + esc(p.name) + "</b>");
     facts.push("今天学会 <b class='mono'>" + learned + "</b> 个知识点");
+    facts.push("待复习 <b class='mono'>" + dueList(c).length + "</b> 项");
     facts.push("连续学习 <b class='mono'>" + streak(c.today, function (x) { return !!act[x]; }) + "</b> 天");
     $("cdFacts").innerHTML = facts.map(function (f) { return "<span>" + f + "</span>"; }).join("");
 
@@ -1495,8 +1695,67 @@ window.MathJax = {
       $("nextMs").hidden = false;
     } else $("nextMs").hidden = true;
   }
+  function dueList(c) {
+    var t = iso(c.today), list = [];
+    orderedSubs().forEach(function (k) {
+      routeFor(k).forEach(function (u) {
+        u.pts.forEach(function (p) {
+          var rv = S.rev[p.id];
+          if (rv && rv.due && rv.due <= t && S.checks[p.id]) list.push({ id: p.id, k: k, p: p, u: u, n: rv.n, due: rv.due });
+        });
+      });
+    });
+    wrongList().forEach(function (x) {
+      if (!x.w.m && x.w.due && x.w.due <= t && SUBJ[x.w.s]) list.push({ id: x.id, k: x.w.s, w: x.w, n: x.w.n, due: x.w.due });
+    });
+    return list.sort(function (a, b) { return a.due < b.due ? -1 : a.due > b.due ? 1 : 0; });
+  }
+  function renderDue(c) {
+    var list = dueList(c), shown = UI.dueAll ? list : list.slice(0, 6);
+    var h = '<div class="due-head"><h3>今日复习<span class="mono">' + list.length + "</span></h3>" +
+      "<p>先别看答案：知识点就合上书说出定义或公式，错题就重新做一遍，再按结果点「记得」或「忘了」。</p></div><div class=\"due-body\">";
+    if (!list.length) {
+      h += '<p class="empty">今天没有要复习的内容。学会的知识点和记下的错题，会在第 1、2、4、7、15、30 天自动出现在这里。</p>';
+    } else {
+      h += shown.map(function (x) {
+        var s = SUBJ[x.k], late = diff(parse(x.due), c.today);
+        var meta = '<div class="wmeta"><span class="tag ' + s.cat + '">' + esc(s.short) + "</span>" + (x.w ? '<span>错题</span><span class="cause">' + CAUSE[x.w.why] + "</span>" : "<span>" + esc(x.u.t) + "</span>") +
+          "<span>第 " + (x.n + 1) + " 次复习</span>" + (late > 0 ? "<span>已拖 " + late + " 天</span>" : "") + "</div>";
+        var body = x.w ? '<div class="wq">' + esc(x.w.q.length > 90 ? x.w.q.slice(0, 90) + "…" : x.w.q) + "</div>" : "<div>" + esc(x.p.t) + "</div>";
+        var acts = x.w
+          ? (SAMPLE_OK ? '<button type="button" class="act" data-tutor="explain">讲给我听</button>' : "") + '<button type="button" class="act ok" data-rev="ok" data-rid="' + esc(x.id) + '">做对了 ✓</button><button type="button" class="act again" data-rev="again" data-rid="' + esc(x.id) + '">又错了 ↺</button>'
+          : (noteFor(x.id) ? '<button type="button" class="act" data-tutor="note">看笔记</button>' : "") + (SAMPLE_OK ? '<button type="button" class="act" data-tutor="recall">考考我</button>' : "") +
+            '<button type="button" class="act ok" data-rev="ok" data-rid="' + esc(x.id) + '">记得 ✓</button><button type="button" class="act again" data-rev="again" data-rid="' + esc(x.id) + '">忘了 ↺</button>';
+        return '<div class="prow" data-pid="' + esc(x.id) + '" data-subj="' + x.k + '"><div class="wmain">' + meta + body + '</div><div class="acts">' + acts + "</div></div>";
+      }).join("");
+      if (list.length > shown.length) h += '<p><button type="button" class="linkbtn" data-dueall="1">还有 ' + (list.length - shown.length) + " 项，全部显示</button></p>";
+    }
+    $("dueBox").innerHTML = h + "</div>";
+  }
+  function reviewItem(id, ok) {
+    var t = today();
+    if (TUT.pid === id && !TUT.busy) closeTutor();
+    if (id.indexOf("w-") === 0) {
+      var w = items.map[id];
+      if (!w) return;
+      w = JSON.parse(JSON.stringify(w));
+      if (ok) {
+        w.c = Math.min(3, w.c + 1); w.n = Math.min(GAPS.length, w.n + 1);
+        if (w.c >= 3 || w.n >= GAPS.length) { w.m = true; w.due = null; } else w.due = iso(add(t, GAPS[w.n]));
+      } else { w.c = 0; w.n = 0; w.m = false; w.due = iso(add(t, 1)); }
+      items.put(id, w);
+    } else {
+      var rv = S.rev[id];
+      if (!rv) return;
+      if (ok) { rv.n += 1; rv.due = rv.n >= GAPS.length ? null : iso(add(t, GAPS[rv.n])); }
+      else { rv.n = 0; rv.due = iso(add(t, 1)); }
+      store.touch();
+    }
+    renderAll();
+  }
   function renderToday(c) {
     renderBoard(c);
+    renderDue(c);
     $("todayCards").innerHTML = orderedSubs().map(function (k) { return subjectCard(k, c); }).join("");
     placeTutor();
   }
@@ -1570,6 +1829,66 @@ window.MathJax = {
       if (HIDE_CODES[code]) { SAMPLE_OK = false; renderMap(ctx()); renderToday(ctx()); }
       else if (btn) btn.disabled = false;
     });
+  }
+
+  /* ================= 渲染：错题本 ================= */
+  function fillUnits() {
+    var k = $("wSubj").value;
+    if (!SUBJ[k]) return;
+    $("wUnit").innerHTML = '<option value="">不确定 / 其他</option>' + routeFor(k).map(function (u) { return '<option value="' + esc(u.id) + '">' + esc(u.t) + "</option>"; }).join("");
+  }
+  function renderWrong(c) {
+    var subs = orderedSubs(), sel = $("wSubj");
+    if (sel.getAttribute("data-track") !== S.settings.track + "|" + S.settings.level + "|" + JSON.stringify(Object.keys(S.pro))) {
+      var keep = sel.value;
+      sel.innerHTML = subs.map(function (k) { return '<option value="' + k + '">' + esc(SUBJ[k].short) + "</option>"; }).join("");
+      if (subs.indexOf(keep) >= 0) sel.value = keep;
+      sel.setAttribute("data-track", S.settings.track + "|" + S.settings.level + "|" + JSON.stringify(Object.keys(S.pro)));
+      var ku = $("wUnit").value; fillUnits(); $("wUnit").value = ku;
+    }
+    var all = wrongList(), t = iso(c.today);
+    var open = all.filter(function (x) { return !x.w.m; }), done = all.length - open.length;
+    var dueN = open.filter(function (x) { return x.w.due && x.w.due <= t; }).length;
+    var max = 1, cnt = {};
+    CAUSE_ORDER.forEach(function (k) { cnt[k] = open.filter(function (x) { return x.w.why === k; }).length; max = Math.max(max, cnt[k]); });
+    $("wStats").innerHTML = "<h4>还没掌握的错题，按错因</h4>" + CAUSE_ORDER.map(function (k) {
+      return '<div class="wstat"><span>' + CAUSE[k] + '</span><span class="bar"><span style="width:' + (cnt[k] / max * 100).toFixed(0) + '%"></span></span><span class="mono">' + cnt[k] + "</span></div>";
+    }).join("") + '<p class="small">共 ' + all.length + " 道 · 今天待复习 " + dueN + " · 已掌握 " + done + "</p>";
+    var F = [["todo", "待复习"], ["all", "全部"], ["star", "★ 重点"], ["done", "已掌握"]], f = UI.wf || "all";
+    $("wFilter").innerHTML = F.map(function (x) { return '<button type="button" class="chip" data-wf="' + x[0] + '" aria-pressed="' + (x[0] === f) + '">' + x[1] + "</button>"; }).join("");
+    var list = all.filter(function (x) {
+      if (f === "todo") return !x.w.m && x.w.due && x.w.due <= t;
+      if (f === "star") return x.w.star;
+      if (f === "done") return x.w.m;
+      return true;
+    }).sort(function (a, b) { return a.w.d < b.w.d ? 1 : a.w.d > b.w.d ? -1 : 0; });
+    $("wList").innerHTML = list.length ? list.map(function (x) { return wrongHTML(x.id, x.w, t); }).join("")
+      : '<p class="empty">' + (all.length ? "这里没有符合条件的错题。" : "还没有错题。做题时做错了，就在左边记下来；Claude 批改后也可以点「记入错题本」。") + "</p>";
+  }
+  function wrongHTML(id, w, t) {
+    var s = SUBJ[w.s], u = routeFor(w.s).filter(function (x) { return x.id === w.u; })[0];
+    var status = w.m ? '<span class="pace ok">已掌握</span>' : (w.due && w.due <= t ? '<span class="pace slow">今天复习</span>' : (w.due ? "<span>下次复习 " + mdShort(parse(w.due)) + "</span>" : ""));
+    return '<div class="prow" data-pid="' + esc(id) + '" data-subj="' + w.s + '"><div class="wmain"><div class="wmeta"><span class="tag ' + s.cat + '">' + esc(s.short) + "</span>" +
+      (u ? "<span>" + esc(u.t) + "</span>" : "") + '<span class="cause">' + CAUSE[w.why] + "</span>" + status + (w.star ? '<span class="star">★ 重点</span>' : "") +
+      '<span class="mono">' + mdShort(parse(w.d)) + " 记</span></div>" + '<div class="wq">' + esc(w.q) + "</div>" + (w.note ? '<div class="wn">' + esc(w.note) + "</div>" : "") + "</div>" +
+      '<div class="acts">' + (SAMPLE_OK ? '<button type="button" class="act pri" data-tutor="explain">讲给我听</button>' : "") +
+      '<button type="button" class="act" data-wstar="' + esc(id) + '" aria-pressed="' + w.star + '">' + (w.star ? "取消重点" : "标为重点") + "</button>" +
+      '<button type="button" class="act' + (UI.armed === id ? " again" : "") + '" data-wdel="' + esc(id) + '">' + (UI.armed === id ? "确认删除" : "删除") + "</button></div></div>";
+  }
+  function addWrong() {
+    var k = $("wSubj").value, q = $("wQ").value.trim(), pick = document.querySelector('input[name="wwhy"]:checked'), err = $("wErr");
+    $("wOk").textContent = "";
+    if (!SUBJ[k]) { err.textContent = "先选科目。"; return; }
+    if (!q) { err.textContent = "先写下题目，或者写清是哪本书第几页第几题。"; $("wQ").focus(); return; }
+    if (!pick) { err.textContent = "选一个错因，复习时才知道该怎么补。"; return; }
+    err.textContent = "";
+    var t = today();
+    items.put("w-" + rid(), { type: "wrong", s: k, u: $("wUnit").value, q: q.slice(0, 1200), why: pick.value, note: $("wNote").value.trim().slice(0, 600),
+      star: $("wStar").checked, d: iso(t), n: 0, due: iso(add(t, 1)), c: 0, m: false });
+    $("wQ").value = ""; $("wNote").value = ""; $("wStar").checked = false; pick.checked = false;
+    UI.wf = "all";
+    renderAll();
+    $("wOk").textContent = "已记下。明天它会出现在「今天学」的复习区。";
   }
 
   /* ================= 渲染：设置与抬头 ================= */
@@ -1814,6 +2133,9 @@ window.MathJax = {
   function weekKey(d) { return iso(monday(d)); }
   function renderReview(c) {
     var wk = weekKey(c.today), mon = monday(c.today), cur = S.reviews[wk] || {};
+    var mine = wrongList().filter(function (x) { return x.w.d >= wk && x.w.d <= iso(add(mon, 6)); });
+    $("rvBHint").textContent = mine.length ? "本周记了 " + mine.length + " 道错题：" + CAUSE_ORDER.map(function (k) { return CAUSE[k] + " " + mine.filter(function (x) { return x.w.why === k; }).length; }).join(" · ") + "。"
+      : "知识盲区、方法不熟、审题计算还是时间不够？";
     $("rvWeek").textContent = md(mon) + " – " + md(add(mon, 6));
     ["rvA", "rvB", "rvC"].forEach(function (id) { var ta = $(id); if (document.activeElement !== ta) ta.value = cur[ta.getAttribute("data-k")] || ""; });
     var past = Object.keys(S.reviews).filter(function (k) { return k < wk && S.reviews[k] && S.reviews[k].c; }).sort().reverse().slice(0, 4);
@@ -1825,7 +2147,7 @@ window.MathJax = {
 
   /* ================= 总渲染与分页 ================= */
   function renderTabs() {
-    ["today", "map", "plan", "score"].forEach(function (v) {
+    VIEWS.forEach(function (v) {
       var on = v === UI.view;
       $("t-" + v).setAttribute("aria-selected", String(on));
       $("t-" + v).tabIndex = on ? 0 : -1;
@@ -1833,7 +2155,7 @@ window.MathJax = {
     });
   }
   function setView(v, focus) {
-    if (["today", "map", "plan", "score"].indexOf(v) < 0) return;
+    if (VIEWS.indexOf(v) < 0) return;
     UI.view = v;
     try { localStorage.setItem(LS_VIEW, v); } catch (e) { /* ignore */ }
     try { history.replaceState(null, "", "#" + v); } catch (e) { /* ignore */ }
@@ -1849,6 +2171,7 @@ window.MathJax = {
     renderTabs();
     renderToday(c);
     renderMap(c);
+    renderWrong(c);
     renderTargets();
     renderTimeline(c);
     renderWeek(c);
@@ -1869,8 +2192,10 @@ window.MathJax = {
     if (t.id === "customDate") { if (parse(t.value)) { S.settings.custom = t.value; UI.phase = null; UI.week = null; store.touch(); renderAll(); } return; }
     if (t.id === "sSubj") { $("sVal").max = SUBJ[t.value].full; return; }
     var pid = t.getAttribute && t.getAttribute("data-point");
+    if (t.id === "wSubj") { fillUnits(); return; }
     if (pid) {
-      if (t.checked) S.checks[pid] = iso(today()); else delete S.checks[pid];
+      if (t.checked) { S.checks[pid] = iso(today()); S.rev[pid] = { n: 0, due: iso(add(today(), 1)) }; }
+      else { delete S.checks[pid]; delete S.rev[pid]; }
       if (t.checked && TUT.pid === pid && !TUT.busy) closeTutor();
       store.touch(); renderAll(); return;
     }
@@ -1910,7 +2235,8 @@ window.MathJax = {
       return;
     }
     if (f.hasAttribute && f.hasAttribute("data-proform")) { e.preventDefault(); genOutline(f.getAttribute("data-proform")); return; }
-    if (f.id === "sform") { e.preventDefault(); addScore(); }
+    if (f.id === "sform") { e.preventDefault(); addScore(); return; }
+    if (f.id === "wform") { e.preventDefault(); addWrong(); }
   });
 
   document.addEventListener("click", function (e) {
@@ -1928,6 +2254,8 @@ window.MathJax = {
     if (tt) {
       if (tt === "close") closeTutor();
       else if (tt === "stop") { if (TUT.ctl) TUT.ctl.abort(); }
+      else if (tt === "save") saveNote();
+      else if (tt === "towrong") tutorToWrong();
       else if (ASK[tt]) ask(ASK[tt][0], ASK[tt][1], false);
       return;
     }
@@ -1941,6 +2269,24 @@ window.MathJax = {
     if (b.hasAttribute("data-phase")) { UI.phase = +b.getAttribute("data-phase"); var c = ctx(); renderPhases(c); $("tab-" + c.ph[UI.phase].id).focus(); return; }
     if (b.hasAttribute("data-week")) { UI.week = b.getAttribute("data-week"); renderWeek(ctx()); var nb = document.querySelector('[data-week="' + UI.week + '"]'); if (nb) nb.focus(); return; }
     if (b.hasAttribute("data-subj") && b.classList.contains("chip")) { UI.subj = b.getAttribute("data-subj"); $("sSubj").value = UI.subj; renderScores(ctx()); var cb = document.querySelector('.chip[data-subj="' + UI.subj + '"]'); if (cb) cb.focus(); return; }
+    if (b.hasAttribute("data-rev")) { reviewItem(b.getAttribute("data-rid"), b.getAttribute("data-rev") === "ok"); return; }
+    if (b.hasAttribute("data-dueall")) { UI.dueAll = true; renderDue(ctx()); placeTutor(); return; }
+    if (b.hasAttribute("data-wf")) { UI.wf = b.getAttribute("data-wf"); renderWrong(ctx()); placeTutor(); var wb = document.querySelector('[data-wf="' + UI.wf + '"]'); if (wb) wb.focus(); return; }
+    if (b.hasAttribute("data-wstar")) {
+      var sid = b.getAttribute("data-wstar"), sw = items.map[sid];
+      if (sw) { sw = JSON.parse(JSON.stringify(sw)); sw.star = !sw.star; items.put(sid, sw); renderWrong(ctx()); placeTutor(); }
+      return;
+    }
+    if (b.hasAttribute("data-wdel")) {
+      var did = b.getAttribute("data-wdel");
+      if (UI.armed === did) { if (TUT.pid === did) closeTutor(); items.del(did); UI.armed = null; renderAll(); }
+      else {
+        UI.armed = did; renderWrong(ctx()); placeTutor();
+        var again2 = document.querySelector('[data-wdel="' + did + '"]'); if (again2) again2.focus();
+        setTimeout(function () { if (UI.armed === did) { UI.armed = null; renderWrong(ctx()); placeTutor(); } }, 4000);
+      }
+      return;
+    }
     if (b.hasAttribute("data-del")) {
       var id = b.getAttribute("data-del");
       if (UI.armed === id) { S.scores = S.scores.filter(function (x) { return x.id !== id; }); UI.armed = null; store.touch(); renderScores(ctx()); }
@@ -1954,9 +2300,9 @@ window.MathJax = {
 
   $("apptabs").addEventListener("keydown", function (e) {
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-    var order = ["today", "map", "plan", "score"], i = order.indexOf(UI.view);
+    var i = VIEWS.indexOf(UI.view), n = VIEWS.length;
     e.preventDefault();
-    setView(order[(i + (e.key === "ArrowRight" ? 1 : 3)) % 4], true);
+    setView(VIEWS[(i + (e.key === "ArrowRight" ? 1 : n - 1)) % n], true);
   });
   $("tabs").addEventListener("keydown", function (e) {
     if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
