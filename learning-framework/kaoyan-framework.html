@@ -251,6 +251,7 @@ details.unit > summary:hover{background:var(--sheet)}
 .proset label{display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--red);letter-spacing:.04em;min-width:0}
 .proset .txt{font-size:14.5px;color:var(--ink)}
 .small{font-size:12.5px;color:var(--ink-3)}
+.presets{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 
 /* ---------- 大题（备考计划） ---------- */
 .q{display:flex;flex-direction:column;gap:18px;scroll-margin-top:64px}
@@ -805,6 +806,8 @@ window.MathJax = {
     ]
   };
   /* 各科第一轮的时间窗：[开始于考前几周（0 表示从现在开始）, 结束于考前几周] */
+  /* 内置专业课大纲（按目标院校考试大纲和常用参考书整理） */
+  var PRO_PRESETS = {"mgmt810": {"label": "810 管理学（周三多版）", "note": "内置大纲：按上海海事大学 810 管理学考试大纲的七个部分（导论、管理思想的发展、决策与计划、组织、领导、控制、创新）和参考书整理，以当年公布的大纲为准。", "data": {"name": "810 管理学", "book": "周三多等《管理学——原理与方法》（第七版），复旦大学出版社", "units": [{"t": "导论：管理与管理者", "why": "先弄清“管理是什么、管理者做什么”，后面各章都围绕管理的职能展开。", "pts": ["管理的内涵与本质", "管理的基本职能：决策与计划、组织、领导、控制、创新", "管理者的角色（明茨伯格）与技能（卡茨：技术、人际、概念）", "管理的基本原理：系统、人本、责任、效益", "管理道德与企业社会责任"]}, {"t": "管理思想的发展", "why": "选择题和简答题常考各学派的代表人物和观点，按时间线记最清楚。", "pts": ["中国传统管理思想与西方早期管理思想", "泰勒的科学管理理论", "法约尔的一般管理理论与十四条管理原则", "韦伯的行政组织（科层制）理论", "梅奥的霍桑实验与人际关系学说", "现代管理理论：管理科学、系统、权变、决策理论等学派", "当代管理思想：学习型组织、企业再造等"]}, {"t": "决策", "why": "决策是管理的核心；决策树、不确定型决策这类计算题要会做。", "pts": ["决策的内涵、类型与特点", "决策的过程", "决策理论：古典决策理论与行为决策理论（有限理性）", "集体决策方法：头脑风暴法、德尔菲法等", "确定型决策方法：线性规划、量本利分析", "风险型决策方法：期望值与决策树", "不确定型决策方法：乐观、悲观、折中、后悔值准则"]}, {"t": "计划", "why": "计划把决策落到行动上；目标管理和战略分析工具是论述题、案例题的常客。", "pts": ["计划的内涵、性质与类型", "计划的编制过程", "战略环境分析：SWOT、波特五力模型", "业务组合分析：波士顿矩阵", "目标管理（MBO）", "滚动计划法与网络计划技术"]}, {"t": "组织", "why": "组织结构类型的优缺点几乎年年考，要能比较，也要能结合案例分析。", "pts": ["组织设计的任务、原则与影响因素", "管理幅度、管理层次与集权、分权", "部门化的方式", "组织结构类型：直线职能制、事业部制、矩阵制、网络型", "人员配备：选聘、考评与培训", "组织文化的内涵、功能与塑造", "组织变革的动因、阻力与管理"]}, {"t": "领导", "why": "领导、激励、沟通是案例分析最常用的理论来源，激励理论尤其要熟。", "pts": ["领导的性质与权力来源", "领导特质理论与行为理论（管理方格等）", "领导权变理论：菲德勒模型、路径—目标理论、情境领导", "激励理论：需要层次理论与双因素理论", "激励理论：期望理论、公平理论与强化理论", "沟通的过程、类型、障碍及克服", "冲突的类型、处理方式与谈判"]}, {"t": "控制", "why": "控制讲“怎么保证计划落实”，控制的类型和过程是简答题高频点。", "pts": ["控制的内涵、必要性与类型（前馈、同期、反馈）", "控制的过程：确立标准、衡量绩效、纠正偏差", "有效控制的要求", "控制方法：预算控制、比率分析、审计与质量控制", "风险控制与危机管理"]}, {"t": "创新", "why": "创新是第五项管理职能，近年常和数字化、组织变革结合出论述题。", "pts": ["创新的内涵、类型与作用", "创新的过程与创新活动的组织", "技术创新", "组织创新：结构、制度与文化创新"]}, {"t": "题型与答题方法", "why": "810 有选择、简答、论述、案例分析四种题型，答题结构要提前练。", "pts": ["选择题：辨析相近概念和代表人物", "简答题：定义 + 要点 + 简要解释", "论述题：理论展开 + 联系实际", "案例分析：先找对应理论，再逐条对照材料"]}]}}, "or809": {"label": "809 运筹学（清华版）", "note": "内置大纲：按清华版《运筹学》的常考章节整理，以目标院校当年公布的考试大纲为准。", "data": {"name": "809 运筹学", "book": "运筹学教材编写组《运筹学》（第四版），清华大学出版社", "units": [{"t": "线性规划与单纯形法", "why": "运筹学的地基，后面对偶、运输、整数规划都从这里出发。", "pts": ["线性规划模型的建立", "图解法", "单纯形法的原理与计算", "人工变量法：大 M 法与两阶段法"]}, {"t": "对偶理论与灵敏度分析", "why": "对偶和影子价格是大题常考点，要会写对偶问题、会做灵敏度分析。", "pts": ["对偶问题的构造", "对偶性质与影子价格", "对偶单纯形法", "灵敏度分析"]}, {"t": "运输问题", "why": "表上作业法步骤固定，练熟就能拿分。", "pts": ["运输问题的模型", "初始方案：西北角法、最小元素法、伏格尔法", "位势法检验与闭回路调整", "产销不平衡的运输问题"]}, {"t": "整数规划", "why": "分支定界和指派问题（匈牙利法）是常见计算题。", "pts": ["整数规划模型", "分支定界法", "割平面法", "0-1 规划与指派问题（匈牙利法）"]}, {"t": "目标规划", "why": "多目标问题的建模方法，重点是偏差变量和优先级。", "pts": ["目标规划模型与偏差变量", "目标规划的图解法", "用单纯形法求解目标规划"]}, {"t": "动态规划", "why": "把多阶段问题拆成一步一步求解，逆序递推是核心。", "pts": ["基本概念与最优化原理", "逆序递推求解", "资源分配、背包等应用"]}, {"t": "图与网络分析", "why": "最短路、最大流等算法题年年考，要会手算。", "pts": ["最小支撑树", "最短路问题（Dijkstra 算法）", "最大流问题", "最小费用最大流"]}, {"t": "网络计划", "why": "关键路线和时间参数计算是固定题型。", "pts": ["网络图的绘制", "时间参数计算与关键路线", "网络计划的优化"]}, {"t": "排队论", "why": "记住 M/M/1、M/M/c 的公式和指标含义即可。", "pts": ["排队系统的组成与特征", "M/M/1 模型", "M/M/c 模型"]}, {"t": "存储论", "why": "经济订货批量（EOQ）是基础模型，变形题都从它推。", "pts": ["存储问题的基本概念", "经济订货批量（EOQ）模型", "允许缺货与有数量折扣的存储模型"]}, {"t": "决策论与对策论", "why": "和管理学的决策方法相通，重点是决策准则和矩阵对策。", "pts": ["不确定型与风险型决策", "决策树与效用理论", "矩阵对策"]}]}}};
   var WIN = { math: [0, 24], c199: [0, 8], eng: [0, 6], pro: [40, 8], pol: [24, 4] };
   var HOURS = { full: { math: 3.5, c199: 4, eng: 2, pro: 2, pol: 1.5 }, part: { math: 1.5, c199: 2, eng: 1, pro: 1, pol: 0.5 } };
 
@@ -1283,7 +1286,7 @@ window.MathJax = {
       var p = S.pro[k];
       if (!p || !p.units || !p.units.length) return [];
       return p.units.map(function (u, i) {
-        return { id: "pro:" + k + ":" + i, t: u.t, book: p.book ? "《" + p.book + "》" : "目标院校参考书", days: 7, why: u.why,
+        return { id: "pro:" + k + ":" + i, t: u.t, book: p.book ? (p.book.indexOf("《") >= 0 ? p.book : "《" + p.book + "》") : "目标院校参考书", days: 7, why: u.why,
           pts: u.pts.map(function (x, j) { return { id: "pro:" + k + ":" + i + ":" + j, t: x }; }) };
       });
     }
@@ -1301,6 +1304,19 @@ window.MathJax = {
       out.push({ id: u[0], t: u[1], book: u[2], days: u[3], why: u[4], pts: pts });
     });
     return out;
+  }
+  function sname(k) {
+    var s = SUBJ[k], p = S.pro[k];
+    return s.name + (s.cat === "pro" && p && p.name ? "（" + p.name + "）" : "");
+  }
+  function proNote(k) {
+    var p = S.pro[k];
+    if (!p || !p.units || !p.units.length) return "专业课每个学校都不一样：选用内置大纲，或填写科目名称让 Claude 生成。";
+    for (var id in PRO_PRESETS) if (PRO_PRESETS[id].data.name === p.name) return PRO_PRESETS[id].note;
+    return "大纲由 Claude 根据科目名称生成，请对照参考书目录核对。";
+  }
+  function clearPro(k) {
+    [S.checks, S.rev].forEach(function (m) { Object.keys(m).forEach(function (id) { if (id.indexOf("pro:" + k + ":") === 0) delete m[id]; }); });
   }
   function plan(k, c) {
     var w = WIN[SUBJ[k].cat], a = anchor(c.today);
@@ -1625,7 +1641,7 @@ window.MathJax = {
   function subjectCard(k, c) {
     var s = SUBJ[k], P = plan(k, c), cat = s.cat;
     var pct = P.total ? P.done / P.total * 100 : 0;
-    var h = '<article class="sc" id="sc-' + k + '"><header class="sc-head"><h3><span class="tag ' + cat + '">' + esc(s.short) + "</span>" + esc(s.name) + "</h3>" +
+    var h = '<article class="sc" id="sc-' + k + '"><header class="sc-head"><h3><span class="tag ' + cat + '">' + esc(s.short) + "</span>" + esc(sname(k)) + "</h3>" +
       '<div class="sc-meta">' + (P.active ? "<span>今天约 <b class='mono'>" + hrs(HOURS[S.settings.mode][cat]) + "</b> 小时</span>" : "<span>还没到开始时间</span>") +
       (P.total ? "<span>第一轮已学 <b class='mono'>" + P.done + "/" + P.total + "</b> 个知识点</span>" : "") + pacePill(P) + "</div>" +
       (P.total ? '<div class="sbar" title="黑条是你的进度，红线是计划进度"><span style="width:' + pct.toFixed(1) + '%"></span><i style="left:' + (P.fp * 100).toFixed(1) + '%"></i></div>' : "") +
@@ -1640,10 +1656,12 @@ window.MathJax = {
       var other = trackCats().math ? "数学和英语" : "管综和英语";
       h += '<div class="idle"><p><b>' + esc(s.short) + "从 " + md(P.ws, true) + " 开始</b>（还有 " + diff(c.today, P.ws) + " 天）。</p>" +
         "<p>" + (cat === "pol" ? "零基础也不用提前学政治，现在把时间留给" + other + "。" :
-          "在这之前先确定具体专业和科目代码。确定后可以到「知识地图」里填写科目名称，让 Claude 生成知识点大纲。") + "</p></div>";
+          P.units.length ? "大纲已经准备好，共 " + P.units.length + " 章、" + P.total + " 个知识点，可以先到「知识地图」里看看要学哪些内容。现在先把时间留给" + other + "。" :
+          "在这之前先确定具体专业和科目代码，再到「知识地图」里选用内置大纲，或填写科目名称让 Claude 生成。") + "</p>" +
+        (cat === "pro" ? '<p><button type="button" class="act" data-goto-map="' + k + '">' + (P.units.length ? "看专业课知识地图" : "去设置专业课大纲") + "</button></p>" : "") + "</div>";
     } else if (!P.units.length) {
-      h += '<div class="idle"><p><b>还没有专业课大纲。</b>专业课每个学校都不一样，先在招生目录里查到科目名称和参考书。</p>' +
-        '<p><button type="button" class="act pri" data-goto-map="' + k + '">去填写专业课科目，生成大纲</button></p></div>';
+      h += '<div class="idle"><p><b>还没有专业课大纲。</b>专业课每个学校都不一样，先在招生目录里查到科目名称和参考书。可以选用内置的 810 管理学、809 运筹学大纲，或填写科目名称让 Claude 生成。</p>' +
+        '<p><button type="button" class="act pri" data-goto-map="' + k + '">去设置专业课大纲</button></p></div>';
     } else if (P.curIdx < 0) {
       h += '<div class="idle"><p><b>第一轮知识点全部学完了！</b>接下来按「备考计划」进入强化和真题阶段。</p></div>';
     } else {
@@ -1770,10 +1788,10 @@ window.MathJax = {
       return '<button type="button" class="chip" data-map="' + x + '" aria-pressed="' + (x === k) + '"><span class="sw ' + SUBJ[x].cat + '"></span>' + esc(SUBJ[x].short) +
         (q.total ? ' <span class="mono small">' + q.done + "/" + q.total + "</span>" : "") + "</button>";
     }).join("");
-    var h = '<div class="map-head"><h3>' + esc(s.name) + "</h3>" +
+    var h = '<div class="map-head"><h3>' + esc(sname(k)) + "</h3>" +
       '<div class="meta"><span>第一轮：' + ymd(P.ws) + " – " + ymd(P.we) + "</span>" + (P.total ? "<span>已学 <b class='mono'>" + P.done + "/" + P.total + "</b></span>" : "") + pacePill(P) + "</div>" +
       (P.total ? '<div class="sbar"><span style="width:' + (P.done / P.total * 100).toFixed(1) + '%"></span><i style="left:' + (P.fp * 100).toFixed(1) + '%"></i></div>' : "") +
-      '<p class="small">' + (s.cat === "pro" ? "大纲由 Claude 根据科目名称生成，请对照参考书目录核对。" : "按章节顺序学，每章内的知识点也按顺序。考试范围以当年考试大纲为准。") + "</p></div>";
+      '<p class="small">' + (s.cat === "pro" ? proNote(k) : "按章节顺序学，每章内的知识点也按顺序。考试范围以当年考试大纲为准。") + "</p></div>";
     if (s.cat === "pro") {
       var cur = S.pro[k] || {}, dr = UI.proDraft[k] || {};
       var nm = dr.name !== undefined ? dr.name : (cur.name || ""), bk = dr.book !== undefined ? dr.book : (cur.book || "");
@@ -1781,7 +1799,12 @@ window.MathJax = {
         '<label>参考书（可选）<input class="txt" id="proBook-' + k + '" maxlength="80" value="' + esc(bk) + '" placeholder="例如：招生目录里列出的书名"></label>' +
         '<button type="submit" class="btn' + (UI.armed === "pro:" + k ? " ghost" : "") + '"' + (SAMPLE_OK ? "" : " disabled") + ">" +
         (UI.armed === "pro:" + k ? "确认重新生成（会清空本科进度）" : (cur.units && cur.units.length ? "重新生成大纲" : "让 Claude 生成知识点大纲")) + "</button></form>" +
-        '<p class="small" id="proMsg-' + k + '">' + (SAMPLE_OK ? "在目标院校的招生专业目录里查到科目名称和参考书，填进来就能生成。" : "生成大纲需要在 claude.ai 里打开这个页面并允许使用 Claude。") + "</p>";
+        '<p class="small" id="proMsg-' + k + '">' + (SAMPLE_OK ? "在目标院校的招生专业目录里查到科目名称和参考书，填进来就能生成。" : "生成大纲需要在 claude.ai 里打开这个页面并允许使用 Claude。") + "</p>" +
+        '<div class="presets"><span class="small">或直接用内置大纲：</span>' + Object.keys(PRO_PRESETS).map(function (id) {
+          var P0 = PRO_PRESETS[id], on = cur.name === P0.data.name, arm = UI.armed === "preset:" + k + ":" + id;
+          return '<button type="button" class="act' + (on ? " pri" : arm ? " again" : "") + '" data-preset="' + id + '" data-subjkey="' + k + '" aria-pressed="' + on + '">' +
+            (arm ? "确认替换（会清空本科进度）" : esc(P0.label) + (on ? " · 正在用" : "")) + "</button>";
+        }).join("") + "</div>";
     }
     if (P.units.length) {
       h += '<div class="units">' + P.units.map(function (u, i) {
@@ -1818,7 +1841,7 @@ window.MathJax = {
     }).then(function (arr) {
       var data = normalize({ pro: (function () { var o = {}; o[k] = { name: name, book: book, units: Array.isArray(arr) ? arr : [] }; return o; })() }).pro[k];
       if (!data || !data.units.length) { msg.textContent = "没能生成有效的大纲，换个更具体的科目名称再试一次。"; if (btn) btn.disabled = false; return; }
-      Object.keys(S.checks).forEach(function (id) { if (id.indexOf("pro:" + k + ":") === 0) delete S.checks[id]; });
+      clearPro(k);
       S.pro[k] = data;
       delete UI.proDraft[k];
       store.touch();
@@ -2263,6 +2286,18 @@ window.MathJax = {
       var tk = iso(today());
       if (S.words[tk]) delete S.words[tk]; else S.words[tk] = 1;
       store.touch(); renderToday(ctx()); return;
+    }
+    if (b.hasAttribute("data-preset")) {
+      var pk = b.getAttribute("data-subjkey"), pr = b.getAttribute("data-preset"), akey = "preset:" + pk + ":" + pr;
+      var cur0 = S.pro[pk];
+      if (!PRO_PRESETS[pr] || (cur0 && cur0.name === PRO_PRESETS[pr].data.name)) return;
+      if (cur0 && cur0.units && cur0.units.length && UI.armed !== akey) { UI.armed = akey; renderMap(ctx()); placeTutor(); return; }
+      UI.armed = null;
+      if (TUT.pid && TUT.pid.indexOf("pro:" + pk + ":") === 0) closeTutor();
+      clearPro(pk);
+      S.pro[pk] = normalize({ pro: (function () { var o = {}; o[pk] = PRO_PRESETS[pr].data; return o; })() }).pro[pk];
+      delete UI.proDraft[pk];
+      store.touch(); renderAll(); return;
     }
     if (b.hasAttribute("data-goto-map")) { UI.mapSubj = b.getAttribute("data-goto-map"); renderMap(ctx()); setView("map"); var inp = $("proName-" + UI.mapSubj); if (inp) inp.focus(); return; }
     if (b.hasAttribute("data-map")) { UI.mapSubj = b.getAttribute("data-map"); renderMap(ctx()); var cb0 = document.querySelector('[data-map="' + UI.mapSubj + '"]'); if (cb0) cb0.focus(); return; }
