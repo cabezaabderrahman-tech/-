@@ -17,6 +17,15 @@
   `pip install requests -r .claude/skills/ppt-master/requirements.txt`
   用 webapp-testing 还需：`pip install playwright && python -m playwright install chromium`
 
+## 考研学习框架
+
+`learning-framework/kaoyan-framework.html`：交互式考研备考页面，按“定目标 · 排时间 · 拆任务 · 练方法 · 测反馈”五步组织。
+
+- 选报考类别（学硕理工 / 学硕经管 / 专硕工科 / 管理类联考 / 文法教史）和考试年份，自动生成倒排时间线、报名节点、阶段任务清单和每周节奏。
+- 任务可勾选，有进度诊断；可记录真题/模考成绩看趋势，每周写三句复盘。
+- 在 claude.ai 上以 Artifact 打开时，进度按人私密保存到账号；直接用浏览器打开本地文件时，只保存在该浏览器。
+- 2027 考研日期：预报名 2026-10-09～12，正式报名 10-15～24，初试 12-19～20。其他节点为估算，以研招网为准。
+
 ## research 和 last30days
 
 这两个是 Claude Code 插件，不是普通技能。云端会话不会安装插件（仓库 `.claude/settings.json` 里声明的也不会），所以不放进本仓库。
